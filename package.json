@@ -1,0 +1,34 @@
+{
+  "name": "@mishguru/muppet",
+  "version": "1.0.0",
+  "description": "ADB utils",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "pkg-test",
+    "build": "pkg-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mishguruorg/muppet.git"
+  },
+  "keywords": [
+    "ADB",
+    "phone",
+    "android"
+  ],
+  "author": "Mish Guru <devs@mish.guru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mishguruorg/muppet/issues"
+  },
+  "homepage": "https://github.com/mishguruorg/muppet#readme",
+  "devDependencies": {
+    "@mishguru/package": "7.7.0"
+  },
+  "dependencies": {
+    "adbkit": "2.11.1",
+    "delay": "4.3.0",
+    "winston": "3.2.1"
+  }
+}
