@@ -39,7 +39,7 @@ logger.error(message)
 
 ## poll
 
-```
+```typescript
 import { poll } from '@mishguru/muppet'
 
 // repeatedly loop a function
