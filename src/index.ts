@@ -1,3 +1,5 @@
-export { default as Device } from './device'
-export { default as logger } from './logger'
-export { default as poll } from './poll'
+import * as device from './device'
+import logger from './logger'
+import poll from './poll'
+
+export { device, logger, poll }

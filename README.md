@@ -5,25 +5,23 @@
 ## Device
 
 ```typescript
-import { Device } from '@mishguru/muppet'
+import { device } from '@mishguru/muppet'
 
-const device = Device.firstDeviceAvailable()
+const deviceId = await device.firstDeviceIdAvailable()
 
-const device = new Device(id)
+await device.enableRoot(deviceId)
 
-await device.enableRoot()
+await device.runCommand(deviceId, 'echo hello world')
 
-await device.runCommand('echo hello world')
+const buffer = await device.runCommandAndAll(deviceId, 'ls')
 
-const buffer = await device.runCommandAndAll('ls')
+const string = await device.runCommandAndReadAllAsString('deviceId, ls')
 
-const string = await device.runCommandAndReadAllAsString('ls')
+await device.pullFile(deviceId, '/etc/passwd', './local/passwd.txt')
 
-await device.pullFile('/etc/passwd', './local/passwd.txt')
+await device.pushFile(deviceId, './local/cache.tgz', '/data/cache.tgz')
 
-await device.pushFile('./local/cache.tgz', '/data/cache.tgz')
-
-await device.reboot()
+await device.reboot(deviceId, )
 ```
 
 ## Logger

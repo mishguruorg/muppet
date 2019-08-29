@@ -4,7 +4,7 @@ import chalk from 'chalk'
 const consoleTransport = new transports.Console()
 
 type customLogger = Logger & {
-  consoleTransport: any
+  consoleTransport: any,
 }
 
 const logger = createLogger({
@@ -23,7 +23,7 @@ const logger = createLogger({
         return info.message
     }
   }),
-  transports: [consoleTransport]
+  transports: [consoleTransport],
 }) as customLogger
 
 logger.consoleTransport = consoleTransport

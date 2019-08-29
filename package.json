@@ -6,7 +6,9 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "pkg-test",
-    "build": "pkg-build"
+    "build": "pkg-build",
+    "lint": "pkg-lint",
+    "tidy": "pkg-tidy"
   },
   "repository": {
     "type": "git",

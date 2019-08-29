@@ -15,7 +15,10 @@
 
 type PredicateFn = () => Promise<boolean>
 
-const poll = async (timeout: number, predicate: PredicateFn): Promise<boolean> => {
+const poll = async (
+  timeout: number,
+  predicate: PredicateFn,
+): Promise<boolean> => {
   const deadline = Date.now() + timeout
   while (Date.now() <= deadline) {
     const result = await predicate()
