@@ -8,7 +8,8 @@
     "test": "pkg-test",
     "build": "pkg-build",
     "lint": "pkg-lint",
-    "tidy": "pkg-tidy"
+    "tidy": "pkg-tidy",
+    "prelease": "npm run build"
   },
   "repository": {
     "type": "git",
