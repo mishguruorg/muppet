@@ -45,8 +45,8 @@ import { poll } from '@mishguru/muppet'
 // or 2 seconds have passed
 
 const timedOut = await poll(2000, async () => {
-  const result = await device.runCommandAndReadAllAsString('ls')
-  return result.match(/ready/) != null
+  const result = await device.runCommandAndReadAllAsString(deviceId, 'cat /data/status')
+  return /ready/.test(result)
 })
 
 if (timedOut) {
