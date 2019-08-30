@@ -27,11 +27,18 @@
   },
   "homepage": "https://github.com/mishguruorg/muppet#readme",
   "devDependencies": {
-    "@mishguru/package": "7.7.0"
+    "@mishguru/package": "7.7.0",
+    "@types/sinon": "7.0.13",
+    "sinon": "7.4.1",
+    "stu": "3.2.0"
   },
   "dependencies": {
+    "@types/xml2js": "0.4.4",
     "adbkit": "2.11.1",
+    "camelize-object-key": "1.0.4",
     "delay": "4.3.0",
-    "winston": "3.2.1"
+    "tempy": "0.3.0",
+    "winston": "3.2.1",
+    "xml2js": "0.4.19"
   }
 }
