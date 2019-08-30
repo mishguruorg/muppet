@@ -105,22 +105,22 @@ node.toString()
 
 ```
 
-## settings
+## wifiSettings
 
 ```typescript
-import { settings } from '@mishguru/muppet'
+import { wifiSettings } from '@mishguru/muppet'
 
-await settings.start(deviceId)
+await wifiSettings.start(deviceId)
 
-await settings.quit(deviceId)
+await wifiSettings.quit(deviceId)
 
-await settings.getProxy(deviceId)
+await wifiSettings.getProxy(deviceId)
 
-await settings.setProxy(deviceId, { host: '192.168.1.100', port: 8080 })
+await wifiSettings.setProxy(deviceId, { host: '192.168.1.100', port: 8080 })
 
-await settings.removeProxy()
+await wifiSettings.removeProxy()
 
-await settings.restartWifi()
+await wifiSettings.restartWifi()
 ```
 
 ## Logger
