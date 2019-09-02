@@ -9,6 +9,7 @@ const ADVANCED_SETTINGS = 'com.android.settings:id/wifi_advanced_toggle'
 const NONE_TEXT = 'None'
 const MANUAL_TEXT = 'Manual'
 const SAVE_BUTTON = 'android:id/button1'
+const PLACEHOLDER_PORT = '8080'
 
 const navigateToWifiSettings = async (deviceId: string) => {
   let window = await automator.dumpWindow(deviceId)
@@ -88,7 +89,10 @@ const setProxy = async (deviceId: string, host: string, port: number) => {
   }
 
   const portInput = window.mustFindNodeById(PROXY_PORT_INPUT)
-  if (portInput.text() !== port.toString()) {
+  if (
+    portInput.text() !== port.toString() ||
+    port.toString() === PLACEHOLDER_PORT
+  ) {
     await automator.clearTextInput(deviceId, portInput)
     await automator.type(deviceId, port.toString())
     await automator.pressBack(deviceId)
