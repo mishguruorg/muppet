@@ -125,6 +125,21 @@ const screenshot = async (
   return destPath
 }
 
+const appVersion = async ( deviceId: string, appName: string): Promise<string> => {
+  const res = await device.runCommandAndReadAllAsString(
+    deviceId,
+    `dumpsys package "${appName}"| grep versionName`,
+  )
+
+  const match = res.match(/\d+\.\d+\.\d+\.\d+/)
+  if (match == null) {
+    throw new Error(`Could not read version of ${appName}!`)
+  }
+
+  const version = match[0]
+  return version
+}
+
 export {
   batteryLevel,
   generateRandomId,
@@ -136,4 +151,5 @@ export {
   toggleScreenAwake,
   whileAwake,
   writeId,
+  appVersion
 }
