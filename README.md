@@ -2,7 +2,7 @@
 
 > Utils for remote controlling android phone
 
-## Device
+## device
 
 ```typescript
 import { device } from '@mishguru/muppet'
@@ -22,6 +22,105 @@ await device.pullFile(deviceId, '/etc/passwd', './local/passwd.txt')
 await device.pushFile(deviceId, './local/cache.tgz', '/data/cache.tgz')
 
 await device.reboot(deviceId, )
+```
+
+## android
+
+```typescript
+import { android } from '@mishguru/muppet'
+
+await android.setSELinuxToEnforce(deviceId)
+
+await android.writeId(deviceId, android.generateRandomId())
+
+const androidId = await android.readId(deviceId)
+
+await android.pressPowerButton(deviceId)
+
+const isSleeping = await android.isSleeping(deviceId)
+
+await android.toggleScreenAwake(deviceId, !isSleeping)
+
+await android.whileAwake(deviceId, async () => {
+  // phone is guranteed to be awake
+  // and will be reset to it's existing state
+  // when this function finishes
+})
+
+const batteryLevel = await android.batteryLevel(deviceId)
+
+const screenshotPath = await android.screenshot(deviceId)
+```
+
+## automator
+
+```typescript
+import { automator } from '@mishguru/muppet'
+
+const window = automator.dumpWindow(deviceId)
+const node = window.findNodeById('android:id/button1')
+
+const { x, y } = node.center()
+await automator.tap(deviceId, x, y)
+
+await automator.tapNode(deviceId, node)
+
+await automator.longTouch(deviceId, x, y)
+
+await automator.longTouchNode(deviceId, node)
+
+await automator.type(deviceId, 'hello world')
+
+await automator.pressKey(deviceId, 66)
+
+await automator.pressEnter(deviceId)
+
+await automator.pressBack(deviceId)
+
+await automator.pressDelete(deviceId)
+
+await automator.moveToEndOfInput(deviceId)
+
+const textInput = window.findNodeById('android:id/textinput')
+await automator.clearTextInput(deviceId, textInput)
+
+// window
+window.findNodeById()
+window.mustFindNodeById()
+window.findNodeByRegex()
+window.mustFindNodeByRegex()
+window.findNodeByText()
+window.mustFindNodeByText()
+window.toString
+
+// node
+node.id()
+node.class()
+node.text()
+node.coords()
+node.size()
+node.center()
+node.findChild()
+node.toString()
+
+```
+
+## wifiSettings
+
+```typescript
+import { wifiSettings } from '@mishguru/muppet'
+
+await wifiSettings.start(deviceId)
+
+await wifiSettings.quit(deviceId)
+
+await wifiSettings.getProxy(deviceId)
+
+await wifiSettings.setProxy(deviceId, { host: '192.168.1.100', port: 8080 })
+
+await wifiSettings.removeProxy()
+
+await wifiSettings.restartWifi()
 ```
 
 ## Logger
